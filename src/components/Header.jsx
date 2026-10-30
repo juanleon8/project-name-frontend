@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Input from './ui/Input'
 import Button from './ui/Button'
 import Navigation from './Navigation'
 
 export default function Header() {
   const [query, setQuery] = useState('')
+  const navigate = useNavigate()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSignupOpen, setIsSignupOpen] = useState(false)
   const [isSuccessOpen, setIsSuccessOpen] = useState(false)
@@ -58,7 +59,15 @@ export default function Header() {
           Encuentra las últimas noticias sobre cualquier tema y guárdalas en tu
           cuenta personal.
         </p>
-        <div className="search-bar">
+        <form
+          className="search-bar"
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (query.trim()) {
+              navigate(`/?q=${encodeURIComponent(query.trim())}`)
+            }
+          }}
+        >
           <input
             className="search-bar__input"
             type="text"
@@ -66,10 +75,10 @@ export default function Header() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="search-bar__button" type="button">
+          <button className="search-bar__button" type="submit">
             Buscar
           </button>
-        </div>
+        </form>
       </div>
 
       {isModalOpen && (
