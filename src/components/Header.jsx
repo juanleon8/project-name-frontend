@@ -1,11 +1,15 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Input from './ui/Input'
 import Button from './ui/Button'
 import Navigation from './Navigation'
+import { useAppContext } from '../context/AppContext'
 
 export default function Header() {
   const [query, setQuery] = useState('')
+  const [searchError, setSearchError] = useState('')
+  const navigate = useNavigate()
+  const { setUser } = useAppContext()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSignupOpen, setIsSignupOpen] = useState(false)
   const [isSuccessOpen, setIsSuccessOpen] = useState(false)
@@ -52,24 +56,39 @@ export default function Header() {
       </div>
       <div className="header__hero">
         <h1 className="hero__title">
-          ¿Que esta pasando en el mundo ?
+          ¿Qué está pasando en el mundo?
         </h1>
         <p className="hero__subtitle">
           Encuentra las últimas noticias sobre cualquier tema y guárdalas en tu
           cuenta personal.
         </p>
-        <div className="search-bar">
+        <form
+          className="search-bar"
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (!query.trim()) {
+              setSearchError('Por favor, introduzca una palabra clave')
+              return
+            }
+            setSearchError('')
+            navigate(`/search?q=${encodeURIComponent(query.trim())}`)
+          }}
+        >
           <input
             className="search-bar__input"
             type="text"
             placeholder="introduce un tema"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value)
+              if (searchError) setSearchError('')
+            }}
           />
-          <button className="search-bar__button" type="button">
+          <button className="search-bar__button" type="submit">
             Buscar
           </button>
-        </div>
+        </form>
+        {searchError && <p className="search-bar__error">{searchError}</p>}
       </div>
 
       {isModalOpen && (
@@ -113,6 +132,10 @@ export default function Header() {
               variant="primary"
               className="modal__button modal__button--signin"
               disabled={!signinEmail || !!signinEmailError || !signinPassword}
+              onClick={() => {
+                setUser({ email: signinEmail })
+                closeSignin()
+              }}
             >
               <span className="modal__button-text">Iniciar sesión</span>
             </Button>

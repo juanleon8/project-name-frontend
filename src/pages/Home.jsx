@@ -9,8 +9,10 @@ export default function Home() {
         alt="Autor"
       />
       <div className="section-about__text">
-        <h2>Acerca del autor</h2>
-        <p>
+        <h2 className="section-about__title">
+          Acerca del autor
+        </h2>
+        <p className="section-about__desc">
           Este bloque describe al autor del proyecto. Aquí debe indicar tu
           nombre, a qué te dedicas y qué tecnologías de desarrollo conoces.
           También puedes hablar de tu experiencia con Practicum, de lo que
