@@ -776,6 +776,24 @@ button {
   margin-left: 104px;
 }
 
+/* ===== Responsive safety ===== */
+img,
+.news-card,
+.main-section,
+.search-results,
+.navbar,
+.navbar__inner,
+.app-footer,
+.hero__title,
+.hero__subtitle,
+.search-bar,
+.section-about__img,
+.section-about__text h2,
+.section-about__text p,
+.modal {
+  max-width: 100%;
+}
+
 /* ===== Utilities ===== */
 .container {
   width: 100%;

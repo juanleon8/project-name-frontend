@@ -16,6 +16,7 @@ export default function SearchForm({ onSearch }) {
         placeholder="introduce un tema"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        required
       />
       <button className="search-form__button" type="submit">
         Buscar

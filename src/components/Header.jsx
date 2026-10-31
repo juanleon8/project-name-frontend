@@ -120,6 +120,7 @@ export default function Header() {
                 }
               }}
               error={signinEmailError}
+              required
             />
             <Input
               label="Contraseña"
@@ -127,6 +128,7 @@ export default function Header() {
               placeholder="introduce tu contraseña"
               value={signinPassword}
               onChange={(e) => setSigninPassword(e.target.value)}
+              required
             />
             <Button
               variant="primary"
@@ -187,6 +189,7 @@ export default function Header() {
                 }
               }}
               error={signupEmailError}
+              required
             />
             <Input
               label="Contraseña"
@@ -194,12 +197,14 @@ export default function Header() {
               placeholder="introduce tu contraseña"
               value={signupPassword}
               onChange={(e) => setSignupPassword(e.target.value)}
+              required
             />
             <Input
               label="Nombre de usuario"
               placeholder="introduce tu nombre de usuario"
               value={signupUsername}
               onChange={(e) => setSignupUsername(e.target.value)}
+              required
             />
             {signupEmailUnavailable && (
               <p className="modal__email-unavailable">
