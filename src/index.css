@@ -588,7 +588,7 @@ button {
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--color-text-strong);
-  margin: 0 0 var(--sp-4);
+  margin: 80px 0 var(--sp-4);
   width: 608px;
   height: 128px;
   display: flex;
@@ -619,7 +619,7 @@ button {
 
 .search-bar {
   position: relative;
-  margin: 64px auto var(--sp-8);
+  margin: 35px auto var(--sp-8);
   width: 608px;
   height: 64px;
 }
@@ -774,6 +774,17 @@ button {
 
 .app-footer__copyright {
   margin-left: 104px;
+}
+
+.navbar .navbar__links a.navbar__saved-news {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-left: 46.5px;
+  margin-right: 46.5px;
+  width: 195px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* ===== Utilities ===== */
