@@ -332,7 +332,8 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 176px;
+  gap: var(--sp-2);
+  width: 112px;
   height: 48px;
   padding: 0;
   border: 1px solid #ffffff;
@@ -341,6 +342,20 @@ button {
   color: var(--color-text-strong);
   font-size: 18px;
   transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.navbar__user-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.navbar__user-icon img {
+  width: 24px;
+  height: 24px;
 }
 
 .navbar__signin-text {
