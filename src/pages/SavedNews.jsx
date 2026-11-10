@@ -50,7 +50,7 @@ export default function SavedNews() {
   if (isLoading) return <Preloader />
 
   return (
-    <>
+    <div className="saved-news">
       {error && <p className="home__error">{error}</p>}
       <SavedNewsHeader
         username="Usuario"
@@ -58,6 +58,6 @@ export default function SavedNews() {
         keyword=""
       />
       <NewsCardList cards={cards} onDelete={handleDelete} />
-    </>
+    </div>
   )
 }

@@ -333,6 +333,23 @@ button {
   align-items: center;
   justify-content: center;
   gap: var(--sp-2);
+  width: 176px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #ffffff;
+  border-radius: 150px;
+  background: transparent;
+  color: var(--color-text-strong);
+  font-size: 18px;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.navbar .navbar__user {
+  margin-right: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
   width: 112px;
   height: 48px;
   padding: 0;
@@ -367,6 +384,12 @@ button {
 }
 
 .navbar .navbar__signin:hover {
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.navbar .navbar__user:hover {
   background: transparent;
   border-color: #ffffff;
   color: #ffffff;
@@ -1206,6 +1229,13 @@ button {
   margin: 80px 0 var(--sp-6) 102px;
   opacity: 1;
   transform: rotate(0deg);
+}
+
+/* ===== Saved news ===== */
+.saved-news {
+  background: #F5F6F7;
+  min-height: calc(100vh - 576px);
+  padding: var(--sp-6) 0;
 }
 
 /* ===== Main sections ===== */

@@ -28,7 +28,7 @@ export default function Navigation({ onSigninClick }) {
             <li>
               <button
                 type="button"
-                className="navbar__signin"
+                className="navbar__user"
                 onClick={handleLogout}
               >
                 <span className="navbar__signin-text">Elise</span>
