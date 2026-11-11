@@ -56,7 +56,19 @@ export default function Header() {
         </div>
         <Navigation onSigninClick={() => setIsModalOpen(true)} />
       </div>
-      <div className="header__hero">
+      <div className={`header__hero ${isSavedNews ? 'header__hero--saved' : ''}`}>
+        {isSavedNews ? (
+          <>
+            <p className="hero__saved-subtitle">Artículos guardados</p>
+            <h2 className="hero__saved-title">
+              Elise, tienes 5 artículos guardados
+            </h2>
+            <p className="hero__saved-keywords">
+              Por palabras clave: Naturaleza, Yellowstone, y 2 más
+            </p>
+          </>
+        ) : (
+          <>
         <h1 className="hero__title">
           ¿Qué está pasando en el mundo?
         </h1>
@@ -91,6 +103,8 @@ export default function Header() {
           </button>
         </form>
         {searchError && <p className="search-bar__error">{searchError}</p>}
+          </>
+        )}
       </div>
 
       {isModalOpen && (
