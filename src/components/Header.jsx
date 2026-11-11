@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import Input from './ui/Input'
 import Button from './ui/Button'
 import Navigation from './Navigation'
@@ -9,6 +9,8 @@ export default function Header() {
   const [query, setQuery] = useState('')
   const [searchError, setSearchError] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
+  const isSavedNews = location.pathname === '/saved-news'
   const { setUser } = useAppContext()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSignupOpen, setIsSignupOpen] = useState(false)
@@ -46,8 +48,8 @@ export default function Header() {
 
   return (
     <header className="navbar">
-      <div className="navbar__inner">
-        <div className="navbar__brand">
+      <div className={`navbar__inner ${isSavedNews ? 'navbar__inner--active' : ''}`}>
+        <div className={`navbar__brand ${isSavedNews ? 'navbar__brand--active' : ''}`}>
           <NavLink to="/" className="navbar__brand-link">
             NewsExplorer
           </NavLink>

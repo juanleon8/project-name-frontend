@@ -39,6 +39,12 @@
   font-display: swap;
 }
 
+/* ===== Glass effect (ajustable) ===== */
+:root {
+  --glass-blur: 1px;
+  --glass-opacity: 0.25;
+}
+
 /* ===== Design tokens ===== */
 :root {
   /* Colors */
@@ -215,10 +221,16 @@ button {
   border-bottom: 1px solid #D1D2D6;
   border-radius: 0;
   padding: var(--sp-2) var(--sp-4);
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: rgba(0, 0, 0, var(--glass-opacity));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   box-shadow: none;
+}
+
+.navbar__inner--active {
+  background: #FFFFFF;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .navbar__menu {
@@ -247,12 +259,21 @@ button {
   gap: var(--sp-2);
   font-weight: 700;
   font-size: 20px;
-  color: var(--color-text-strong);
+  color: #ffffff;
   margin-left: 104px;
+  background: transparent;
+}
+
+.navbar__brand--active {
+  background: #FFFFFF;
+}
+
+.navbar__brand--active .navbar__brand-link {
+  color: #1A1B22;
 }
 
 .navbar__brand-link {
-  color: inherit;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -823,6 +844,37 @@ button {
   height: 24px;
   display: inline-flex;
   align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  background: transparent;
+}
+
+.navbar__menu--active {
+  background: #FFFFFF;
+  color: #1A1B22;
+}
+
+.navbar__menu--active .navbar__inicio,
+.navbar__menu--active .navbar__saved-news {
+  color: #1A1B22 !important;
+}
+
+.navbar__menu--active .navbar__signin,
+.navbar__menu--active .navbar__user {
+  color: #1A1B22 !important;
+  border-color: #1A1B22 !important;
+  background: transparent;
+}
+
+.navbar__menu--active .navbar__inicio-bar {
+  background: #1A1B22;
+}
+
+.navbar .navbar__links a.navbar__saved-news:hover,
+.navbar .navbar__links a.navbar__saved-news:focus,
+.navbar .navbar__links a.navbar__saved-news:active {
+  color: #ffffff;
+  background: transparent;
 }
 
 /* ===== Utilities ===== */
