@@ -3,7 +3,7 @@ import { useAppContext } from '../context/AppContext'
 import bookmarkIcon from '../images/icon/bookmark.svg'
 import savedIcon from '../images/icon/Union2.svg'
 
-export default function NewsCard({ title, text, date, source, image, isSaved, onSave, onDelete, showSavedBadge }) {
+export default function NewsCard({ title, text, date, source, image, isSaved, onSave, onDelete, showSavedBadge, keyword }) {
   const { isAuthenticated } = useAppContext()
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -21,7 +21,9 @@ export default function NewsCard({ title, text, date, source, image, isSaved, on
       <div className="news-card__image-wrap">
         <img className="news-card__image" src={image} alt={title} />
         {showSavedBadge && (
-          <div className="news-card__saved-badge">Guardado</div>
+          <div className="news-card__saved-badge">
+            {keyword || 'Guardado'}
+          </div>
         )}
         <button
           type="button"

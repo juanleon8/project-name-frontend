@@ -15,6 +15,7 @@ export default function NewsCardList({ cards = [], onSave, onDelete, showSavedBa
           onSave={() => onSave && onSave(card)}
           onDelete={() => onDelete && onDelete(card)}
           showSavedBadge={showSavedBadge}
+          keyword={card.keyword}
         />
       ))}
     </section>

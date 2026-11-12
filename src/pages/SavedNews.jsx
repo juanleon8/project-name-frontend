@@ -21,6 +21,7 @@ export default function SavedNews() {
             date: a.date,
             source: a.source,
             image: a.image,
+            keyword: a.keyword,
             isSaved: true,
           })
         )

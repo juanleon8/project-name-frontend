@@ -83,6 +83,7 @@ export default function SearchResults() {
   }, [searchParams])
 
   const handleSave = async (card) => {
+    console.log('handleSave called', card.id, card.title)
     try {
       await ThirdPartyApi.saveArticle({
         title: card.title,
@@ -91,7 +92,9 @@ export default function SearchResults() {
         source: card.source,
         image: card.image,
         link: card.url,
+        keyword: searchParams.get('q') || '',
       })
+      console.log('setting isSaved for', card.id)
       setCards((prev) =>
         prev.map((c) => (c.id === card.id ? { ...c, isSaved: true } : c))
       )

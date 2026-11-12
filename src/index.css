@@ -1088,9 +1088,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--fs-xs);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
   font-weight: 600;
   color: #000000;
+  text-transform: capitalize;
   z-index: 5;
 }
 
