@@ -57,7 +57,7 @@ export default function SavedNews() {
         savedCount={cards.length}
         keyword=""
       />
-      <NewsCardList cards={cards} onDelete={handleDelete} />
+      <NewsCardList cards={cards} onDelete={handleDelete} showSavedBadge />
     </div>
   )
 }

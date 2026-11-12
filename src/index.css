@@ -211,6 +211,10 @@ button {
   border-bottom: 1px solid var(--color-border);
 }
 
+.navbar--saved {
+  height: 294px;
+}
+
 .navbar__inner {
   display: flex;
   align-items: center;
@@ -696,7 +700,7 @@ button {
   font-family: 'Roboto', sans-serif;
   font-size: var(--fs-md);
   color: #000000;
-  margin: 30px 624px 0 104px;
+  margin: 30px 624px 56px 104px;
   width: 712px;
 }
 
@@ -1073,6 +1077,23 @@ button {
   object-fit: cover;
 }
 
+.news-card__saved-badge {
+  position: absolute;
+  top: var(--sp-2);
+  left: var(--sp-2);
+  width: 87px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: #000000;
+  z-index: 5;
+}
+
 .news-card__save {
   position: absolute;
   top: var(--sp-2);
@@ -1094,10 +1115,20 @@ button {
 .news-card__save img {
   width: 20px;
   height: 20px;
+  filter: brightness(0) saturate(100%) invert(50%);
+  transition: filter var(--dur-fast) var(--ease);
+}
+
+.news-card__save:hover img {
+  filter: brightness(0);
 }
 
 .news-card__save--saved img {
-  filter: invert(32%) sepia(98%) saturate(2000%) hue-rotate(200deg) brightness(95%) contrast(105%);
+  filter: brightness(0) saturate(100%) invert(50%);
+}
+
+.news-card__save--saved:hover img {
+  filter: brightness(0);
 }
 
 .news-card__save:hover {
@@ -1300,7 +1331,7 @@ button {
 .search-results {
   background: #F5F6F7;
   width: 1440px;
-  height: 974px;
+  min-height: calc(100vh - 576px);
   padding: var(--sp-6) 0;
   position: relative;
 }

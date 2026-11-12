@@ -26,33 +26,67 @@ class ThirdPartyApi {
   }
 
   static async saveArticle(article) {
-    const response = await fetch(`${API_BASE}/articles`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(article),
-    })
-    if (!response.ok) {
+    try {
+      const response = await fetch(`${API_BASE}/articles`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(article),
+      })
+      if (response.ok) {
+        return response.json().catch(() => ({ ok: true }))
+      }
+    } catch (e) {
+      // Backend no disponible: guardar en localStorage
+    }
+    try {
+      const stored = JSON.parse(localStorage.getItem('savedArticles') || '[]')
+      const newArticle = { ...article, _id: article.link || Date.now().toString() }
+      if (!stored.some((a) => a.link === article.link)) {
+        stored.push(newArticle)
+      }
+      localStorage.setItem('savedArticles', JSON.stringify(stored))
+      return newArticle
+    } catch (e) {
       throw new Error('No se pudo guardar el artículo')
     }
-    return response.json()
   }
 
   static async deleteArticle(id) {
-    const response = await fetch(`${API_BASE}/articles/${id}`, {
-      method: 'DELETE',
-    })
-    if (!response.ok) {
+    try {
+      const response = await fetch(`${API_BASE}/articles/${id}`, {
+        method: 'DELETE',
+      })
+      if (response.ok) {
+        return response.json().catch(() => ({}))
+      }
+    } catch (e) {
+      // Backend no disponible: eliminar de localStorage
+    }
+    try {
+      const stored = JSON.parse(localStorage.getItem('savedArticles') || '[]')
+      const filtered = stored.filter((a) => (a._id || a.id) !== id && a.link !== id)
+      localStorage.setItem('savedArticles', JSON.stringify(filtered))
+      return { ok: true }
+    } catch (e) {
       throw new Error('No se pudo eliminar el artículo')
     }
-    return response.json().catch(() => ({}))
   }
 
   static async getSavedArticles() {
-    const response = await fetch(`${API_BASE}/articles`)
-    if (!response.ok) {
-      throw new Error('No se pudieron obtener los artículos guardados')
+    try {
+      const response = await fetch(`${API_BASE}/articles`)
+      if (response.ok) {
+        const data = await response.json()
+        return Array.isArray(data) ? data : data.articles || []
+      }
+    } catch (e) {
+      // Backend no disponible: leer de localStorage
     }
-    return response.json()
+    try {
+      return JSON.parse(localStorage.getItem('savedArticles') || '[]')
+    } catch (e) {
+      return []
+    }
   }
 }
 
