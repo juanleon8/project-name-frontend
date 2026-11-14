@@ -132,7 +132,7 @@ export default function SearchResults() {
       )}
       {!isLoading && cards.length > 0 && (
         <>
-          <NewsCardList cards={visibleCards} onSave={handleSave} onDelete={handleDelete} />
+          <NewsCardList cards={visibleCards} onSave={handleSave} onDelete={handleDelete} savedIconType="rectangle" />
           {hasMore && (
             <div className="show-more">
               <button

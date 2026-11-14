@@ -1,6 +1,6 @@
 import NewsCard from './NewsCard'
 
-export default function NewsCardList({ cards = [], onSave, onDelete, showSavedBadge }) {
+export default function NewsCardList({ cards = [], onSave, onDelete, showSavedBadge, savedIconType }) {
   return (
     <section className="news-card-list">
       {cards.map((card) => (
@@ -16,6 +16,7 @@ export default function NewsCardList({ cards = [], onSave, onDelete, showSavedBa
           onDelete={() => onDelete && onDelete(card)}
           showSavedBadge={showSavedBadge}
           keyword={card.keyword}
+          savedIconType={savedIconType}
         />
       ))}
     </section>

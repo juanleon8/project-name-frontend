@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useAppContext } from '../context/AppContext'
 import bookmarkIcon from '../images/icon/bookmark.svg'
-import savedIcon from '../images/icon/Union2.svg'
+import savedIconRectangle from '../images/icon/Rectangle 8.svg'
+import savedIconUnion from '../images/icon/Union2.svg'
 
-export default function NewsCard({ title, text, date, source, image, isSaved, onSave, onDelete, showSavedBadge, keyword }) {
+export default function NewsCard({ title, text, date, source, image, isSaved, onSave, onDelete, showSavedBadge, keyword, savedIconType }) {
   const { isAuthenticated } = useAppContext()
   const [showTooltip, setShowTooltip] = useState(false)
 
@@ -35,7 +36,16 @@ export default function NewsCard({ title, text, date, source, image, isSaved, on
           onMouseLeave={() => setShowTooltip(false)}
           aria-label={isSaved ? 'Eliminar' : 'Guardar'}
         >
-          <img src={isSaved ? savedIcon : bookmarkIcon} alt={isSaved ? 'Guardado' : 'Guardar'} />
+          <img
+            src={
+              isSaved
+                ? savedIconType === 'rectangle'
+                  ? savedIconRectangle
+                  : savedIconUnion
+                : bookmarkIcon
+            }
+            alt={isSaved ? 'Guardado' : 'Guardar'}
+          />
         </button>
         {showTooltip && !isAuthenticated && (
           <span className="news-card__tooltip">
