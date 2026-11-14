@@ -353,8 +353,20 @@ button {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 9px;
-  width: 60px;
+  margin-top: 10px;
+  width: 68px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.navbar__saved-bar {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 17.5px;
+  width: 178px;
   height: 3px;
   background: #ffffff;
   border-radius: 2px;
@@ -888,6 +900,7 @@ button {
   color: #ffffff;
   text-decoration: none;
   background: transparent;
+  position: relative;
 }
 
 .navbar__menu--active {
@@ -908,6 +921,10 @@ button {
 }
 
 .navbar__menu--active .navbar__inicio-bar {
+  background: #1A1B22;
+}
+
+.navbar__menu--active .navbar__saved-bar {
   background: #1A1B22;
 }
 

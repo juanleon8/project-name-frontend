@@ -18,7 +18,7 @@ export default function Navigation({ onSigninClick }) {
         <li>
           <NavLink to="/" end className="navbar__inicio">
             Inicio
-            <span className="navbar__inicio-bar" />
+            {!isSavedNews && <span className="navbar__inicio-bar" />}
           </NavLink>
         </li>
         {isAuthenticated && (
@@ -26,6 +26,7 @@ export default function Navigation({ onSigninClick }) {
             <li>
               <NavLink to="/saved-news" className="navbar__saved-news">
                 Artículos guardados
+                {isSavedNews && <span className="navbar__saved-bar" />}
               </NavLink>
             </li>
             <li>
