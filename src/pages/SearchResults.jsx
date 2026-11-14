@@ -138,7 +138,9 @@ export default function SearchResults() {
       {error && <p className="home__error">{error}</p>}
       {!isLoading && cards.length > 0 && (
         <>
-          <h3 className="search-results__title">Resultados de la búsqueda</h3>
+          <h3 className="search-results__title search-results__title--results">
+            Resultados de la búsqueda
+          </h3>
           <NewsCardList cards={visibleCards} onSave={handleSave} onDelete={handleDelete} savedIconType="rectangle" />
           {hasMore && (
             <div className="show-more">
