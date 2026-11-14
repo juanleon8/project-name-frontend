@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import NewsCardList from '../components/NewsCardList'
 import Preloader from '../components/Preloader'
 import ThirdPartyApi from '../utils/ThirdPartyApi'
+import notFoundIcon from '../images/icon/not-found_v1.svg'
 
 const STORAGE_KEY = 'searchResults'
 
@@ -125,6 +126,7 @@ export default function SearchResults() {
 
   return (
     <div className="search-results">
+      <img className="search-results__icon" src={notFoundIcon} alt="No encontrado" />
       <h3 className="search-results__title">No se encontró nada</h3>
       {error && <p className="home__error">{error}</p>}
       {!isLoading && isEmpty && !error && (
