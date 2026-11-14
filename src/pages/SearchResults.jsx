@@ -125,10 +125,12 @@ export default function SearchResults() {
 
   return (
     <div className="search-results">
-      <h2 className="search-results__title">Resultados de la búsqueda</h2>
+      <h3 className="search-results__title">No se encontró nada</h3>
       {error && <p className="home__error">{error}</p>}
       {!isLoading && isEmpty && !error && (
-        <p className="home__empty">No se ha encontrado nada</p>
+        <p className="home__empty">
+          Lo sentimos, pero no hay nada que coincida con tus términos de búsqueda.
+        </p>
       )}
       {!isLoading && cards.length > 0 && (
         <>

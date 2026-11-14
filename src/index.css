@@ -1069,7 +1069,9 @@ button {
 .home__empty {
   text-align: center;
   color: var(--color-text-muted);
-  margin: var(--sp-4) 0;
+  margin: var(--sp-4) auto;
+  width: 356px;
+  height: 48px;
 }
 
 /* ===== NewsCard ===== */
@@ -1361,13 +1363,14 @@ button {
 .search-results__title {
   font-family: 'Roboto Slab', serif;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 26px;
   line-height: 46px;
   letter-spacing: 0px;
   color: #1A1B22;
-  width: 712px;
-  height: 46px;
-  margin: 80px 0 var(--sp-6) 102px;
+  width: 356px;
+  height: 30px;
+  margin: 80px auto var(--sp-6) auto;
+  text-align: center;
   opacity: 1;
   transform: rotate(0deg);
 }
