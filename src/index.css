@@ -1343,8 +1343,10 @@ button {
   cursor: pointer;
 }
 
-.show-more__button:hover {
-  background: var(--color-primary-hover);
+.show-more__button:hover,
+.show-more__button:focus,
+.show-more__button:active {
+  background: #6b7280;
 }
 
 /* ===== Search results ===== */
