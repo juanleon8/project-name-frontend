@@ -1158,6 +1158,14 @@ button {
   filter: invert(25%) sepia(90%) saturate(3000%) hue-rotate(200deg) brightness(95%) contrast(105%);
 }
 
+.news-card__save--union img {
+  filter: brightness(0) saturate(100%) invert(75%);
+}
+
+.news-card__save--union:hover img {
+  filter: brightness(0);
+}
+
 .news-card__save:hover {
   background: #ffffff;
 }

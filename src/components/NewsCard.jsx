@@ -30,7 +30,9 @@ export default function NewsCard({ title, text, date, source, image, isSaved, on
           type="button"
           className={`news-card__save ${
             isSaved ? 'news-card__save--saved' : ''
-          } ${!isAuthenticated ? 'news-card__save--inactive' : ''}`}
+          } ${!isAuthenticated ? 'news-card__save--inactive' : ''} ${
+            isSaved && savedIconType !== 'rectangle' ? 'news-card__save--union' : ''
+          }`}
           onClick={handleSave}
           onMouseEnter={() => !isAuthenticated && setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
