@@ -1104,8 +1104,8 @@ button {
 
 .news-card__saved-badge {
   position: absolute;
-  top: var(--sp-2);
-  left: var(--sp-2);
+  top: 24px;
+  left: 24px;
   width: 87px;
   height: 40px;
   background: #ffffff;
@@ -1123,8 +1123,8 @@ button {
 
 .news-card__save {
   position: absolute;
-  top: 35px;
-  right: 35px;
+  top: 24px;
+  right: 24px;
   width: 40px;
   height: 40px;
   border: none;
