@@ -1147,15 +1147,15 @@ button {
 }
 
 .news-card__save:hover img {
-  filter: brightness(0);
+  filter: invert(25%) sepia(90%) saturate(3000%) hue-rotate(200deg) brightness(95%) contrast(105%);
 }
 
 .news-card__save--saved img {
-  filter: brightness(0) saturate(100%) invert(50%);
+  filter: invert(25%) sepia(90%) saturate(3000%) hue-rotate(200deg) brightness(95%) contrast(105%);
 }
 
 .news-card__save--saved:hover img {
-  filter: brightness(0);
+  filter: invert(25%) sepia(90%) saturate(3000%) hue-rotate(200deg) brightness(95%) contrast(105%);
 }
 
 .news-card__save:hover {
@@ -1368,7 +1368,7 @@ button {
   font-size: var(--fs-md);
   font-weight: 600;
   color: #000000;
-  background: #E8E8E8;
+  background: #FFFFFF;
   border: none;
   border-radius: 80px;
   cursor: pointer;
@@ -1377,7 +1377,7 @@ button {
 .show-more__button:hover,
 .show-more__button:focus,
 .show-more__button:active {
-  background: #6b7280;
+  background: #E8E8E8;
 }
 
 /* ===== Search results ===== */
