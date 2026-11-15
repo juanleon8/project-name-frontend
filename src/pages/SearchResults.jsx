@@ -122,7 +122,14 @@ export default function SearchResults() {
   const visibleCards = cards.slice(0, visibleCount)
   const hasMore = visibleCount < cards.length
 
-  if (isLoading) return <Preloader />
+  if (isLoading) {
+    return (
+      <div className="search-preloader">
+        <div className="search-preloader__spinner" />
+        <p className="search-preloader__text">Buscando noticias....</p>
+      </div>
+    )
+  }
 
   return (
     <div className="search-results">
