@@ -1123,8 +1123,8 @@ button {
 
 .news-card__save {
   position: absolute;
-  top: var(--sp-2);
-  right: var(--sp-2);
+  top: 35px;
+  right: 35px;
   width: 40px;
   height: 40px;
   border: none;
