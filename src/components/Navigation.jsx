@@ -4,9 +4,10 @@ import unionIcon from '../images/icon/Union1.svg'
 import unionActiveIcon from '../images/icon/Union.svg'
 
 export default function Navigation({ onSigninClick }) {
-  const { isAuthenticated, setUser } = useAppContext()
+  const { isAuthenticated, user, setUser } = useAppContext()
   const location = useLocation()
   const isSavedNews = location.pathname === '/saved-news'
+  const displayName = user?.name || (user?.email ? user.email.split('@')[0] : 'Elise')
 
   const handleLogout = () => {
     setUser(null)
@@ -35,7 +36,7 @@ export default function Navigation({ onSigninClick }) {
                 className="navbar__user"
                 onClick={handleLogout}
               >
-                <span className="navbar__signin-text">Elise</span>
+                <span className="navbar__signin-text">{displayName}</span>
                 <div className="navbar__user-icon">
                   <img
                     src={isSavedNews ? unionActiveIcon : unionIcon}

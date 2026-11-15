@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useAppContext } from '../context/AppContext'
 import NewsCardList from '../components/NewsCardList'
 import Preloader from '../components/Preloader'
 import ThirdPartyApi from '../utils/ThirdPartyApi'
@@ -8,6 +9,7 @@ import notFoundIcon from '../images/icon/not-found_v1.svg'
 const STORAGE_KEY = 'searchResults'
 
 export default function SearchResults() {
+  const { setSavedCount } = useAppContext()
   const [searchParams] = useSearchParams()
   const [cards, setCards] = useState([])
   const [visibleCount, setVisibleCount] = useState(3)
@@ -99,6 +101,7 @@ export default function SearchResults() {
       setCards((prev) =>
         prev.map((c) => (c.id === card.id ? { ...c, isSaved: true } : c))
       )
+      setSavedCount((prev) => prev + 1)
     } catch (err) {
       setError(
         'Lo sentimos, algo ha salido mal durante la solicitud. Es posible que haya un problema de conexión o que el servidor no funcione. Por favor, inténtalo más tarde'
@@ -112,6 +115,7 @@ export default function SearchResults() {
       setCards((prev) =>
         prev.map((c) => (c.id === card.id ? { ...c, isSaved: false } : c))
       )
+      setSavedCount((prev) => Math.max(0, prev - 1))
     } catch (err) {
       setError(
         'Lo sentimos, algo ha salido mal durante la solicitud. Es posible que haya un problema de conexión o que el servidor no funcione. Por favor, inténtalo más tarde'

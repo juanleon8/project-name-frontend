@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useAppContext } from '../context/AppContext'
 import SavedNewsHeader from '../components/SavedNewsHeader'
 import NewsCardList from '../components/NewsCardList'
 import Preloader from '../components/Preloader'
 import ThirdPartyApi from '../utils/ThirdPartyApi'
 
 export default function SavedNews() {
+  const { user, setSavedCount } = useAppContext()
   const [cards, setCards] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
@@ -26,6 +28,7 @@ export default function SavedNews() {
           })
         )
         setCards(mapped)
+        setSavedCount(mapped.length)
       } catch (err) {
         setError(
           'Lo sentimos, algo ha salido mal durante la solicitud. Es posible que haya un problema de conexión o que el servidor no funcione. Por favor, inténtalo más tarde'
@@ -41,6 +44,7 @@ export default function SavedNews() {
     try {
       await ThirdPartyApi.deleteArticle(card.id)
       setCards((prev) => prev.filter((c) => c.id !== card.id))
+      setSavedCount((prev) => Math.max(0, prev - 1))
     } catch (err) {
       setError(
         'Lo sentimos, algo ha salido mal durante la solicitud. Es posible que haya un problema de conexión o que el servidor no funcione. Por favor, inténtalo más tarde'
@@ -54,7 +58,7 @@ export default function SavedNews() {
     <div className="saved-news">
       {error && <p className="home__error">{error}</p>}
       <SavedNewsHeader
-        username="Usuario"
+        username={user?.name || user?.email?.split('@')[0] || 'Usuario'}
         savedCount={cards.length}
         keyword=""
       />

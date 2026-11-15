@@ -11,7 +11,7 @@ export default function Header() {
   const navigate = useNavigate()
   const location = useLocation()
   const isSavedNews = location.pathname === '/saved-news'
-  const { setUser } = useAppContext()
+  const { user, setUser, savedCount } = useAppContext()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSignupOpen, setIsSignupOpen] = useState(false)
   const [isSuccessOpen, setIsSuccessOpen] = useState(false)
@@ -61,7 +61,7 @@ export default function Header() {
           <>
             <p className="hero__saved-subtitle">Artículos guardados</p>
             <h2 className="hero__saved-title">
-              Elise, tienes 5 artículos guardados
+              {user?.name || user?.email?.split('@')[0] || 'Usuario'}, tienes {savedCount} artículos guardados
             </h2>
             <p className="hero__saved-keywords">
               Por palabras clave: Naturaleza, Yellowstone, y 2 más
@@ -151,7 +151,7 @@ export default function Header() {
               className="modal__button modal__button--signin"
               disabled={!signinEmail || !!signinEmailError || !signinPassword}
               onClick={() => {
-                setUser({ email: signinEmail })
+                setUser({ email: signinEmail, name: signinEmail.split('@')[0] })
                 closeSignin()
               }}
             >

@@ -4,11 +4,14 @@ const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
   const [user, setUser] = useState(null)
+  const [savedCount, setSavedCount] = useState(0)
 
   const value = {
     user,
     setUser,
     isAuthenticated: Boolean(user),
+    savedCount,
+    setSavedCount,
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
