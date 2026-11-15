@@ -712,9 +712,14 @@ button {
 .hero__saved-keywords {
   font-family: 'Roboto', sans-serif;
   font-size: var(--fs-md);
+  font-weight: 400;
   color: #000000;
   margin: 30px 624px 56px 104px;
   width: 712px;
+}
+
+.hero__saved-keywords strong {
+  font-weight: 700;
 }
 
 .hero__subtitle {
@@ -1110,7 +1115,7 @@ button {
   justify-content: center;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: #000000;
   text-transform: capitalize;
   z-index: 5;

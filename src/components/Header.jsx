@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import Input from './ui/Input'
 import Button from './ui/Button'
@@ -11,6 +11,18 @@ export default function Header() {
   const navigate = useNavigate()
   const location = useLocation()
   const isSavedNews = location.pathname === '/saved-news'
+  const [savedKeywords, setSavedKeywords] = useState([])
+
+  useEffect(() => {
+    if (!isSavedNews) return
+    try {
+      const stored = JSON.parse(localStorage.getItem('savedArticles') || '[]')
+      const keywords = [...new Set(stored.map((a) => a.keyword).filter(Boolean))]
+      setSavedKeywords(keywords)
+    } catch (e) {
+      setSavedKeywords([])
+    }
+  }, [isSavedNews])
   const { user, setUser, savedCount } = useAppContext()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isSignupOpen, setIsSignupOpen] = useState(false)
@@ -64,7 +76,21 @@ export default function Header() {
               {user?.name || user?.email?.split('@')[0] || 'Usuario'}, tienes {savedCount} artículos guardados
             </h2>
             <p className="hero__saved-keywords">
-              Por palabras clave: Naturaleza, Yellowstone, y 2 más
+              Por palabras clave:{' '}
+              {savedKeywords.length > 0 ? (
+                <strong>
+                  {savedKeywords.length > 2
+                    ? `${savedKeywords
+                        .slice(0, 2)
+                        .map((k) => k.charAt(0).toUpperCase() + k.slice(1))
+                        .join(', ')}, y ${savedKeywords.length - 2} más`
+                    : savedKeywords
+                        .map((k) => k.charAt(0).toUpperCase() + k.slice(1))
+                        .join(', ')}
+                </strong>
+              ) : (
+                'sin palabras clave'
+              )}
             </p>
           </>
         ) : (
