@@ -25,6 +25,7 @@ export default function Header() {
   }, [isSavedNews])
   const { user, setUser, savedCount } = useAppContext()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [isSignupOpen, setIsSignupOpen] = useState(false)
   const [isSuccessOpen, setIsSuccessOpen] = useState(false)
 
@@ -72,13 +73,17 @@ export default function Header() {
 
   return (
     <header className={`navbar ${isSavedNews ? 'navbar--saved' : ''}`}>
-      <div className={`navbar__inner ${isSavedNews ? 'navbar__inner--active' : ''}`}>
+      <div className={`navbar__inner ${isSavedNews ? 'navbar__inner--active' : ''} ${menuOpen ? 'navbar__inner--menu-open' : ''}`}>
         <div className={`navbar__brand ${isSavedNews ? 'navbar__brand--active' : ''}`}>
           <NavLink to="/" className="navbar__brand-link">
             NewsExplorer
           </NavLink>
         </div>
-        <Navigation onSigninClick={() => setIsModalOpen(true)} />
+        <Navigation
+          onSigninClick={() => setIsModalOpen(true)}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
       </div>
       <div className={`header__hero ${isSavedNews ? 'header__hero--saved' : ''}`}>
         {isSavedNews ? (

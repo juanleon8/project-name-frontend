@@ -1,15 +1,13 @@
-import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import unionIcon from '../images/icon/Union1.svg'
 import unionActiveIcon from '../images/icon/Union.svg'
 import menuIcon from '../images/icon/menu.svg'
 
-export default function Navigation({ onSigninClick }) {
+export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
   const { isAuthenticated, setUser } = useAppContext()
   const location = useLocation()
   const isSavedNews = location.pathname === '/saved-news'
-  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleLogout = () => {
     setUser(null)
