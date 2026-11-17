@@ -495,6 +495,21 @@ button {
     z-index: 9999;
   }
 
+  .modal--signin {
+    width: 320px !important;
+    height: 560px !important;
+  }
+
+  .modal {
+    width: 320px !important;
+    height: 560px !important;
+  }
+
+  .modal__button {
+    width: 288px !important;
+    height: 64px !important;
+  }
+
   .navbar__inner {
     width: 320px;
     max-width: 320px;
@@ -1804,15 +1819,15 @@ button {
 
 .modal__button-text {
   position: absolute;
-  top: 20px;
-  left: 114px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 130px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transform: rotate(0deg);
 }
 
 .modal__title {
