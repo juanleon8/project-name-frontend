@@ -545,6 +545,15 @@ button {
     align-self: center;
   }
 
+  .navbar__user {
+    align-self: center;
+    margin-left: 90px;
+  }
+
+  .navbar__saved-news {
+    margin-left: 16px !important;
+  }
+
   .navbar__links li {
     width: 320px;
     height: 55.85px;

@@ -15,7 +15,7 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
   }
 
   return (
-    <div className={`navbar__menu ${menuOpen ? 'navbar__menu--open' : ''}`}>
+    <div className={`navbar__menu ${menuOpen ? 'navbar__menu--open' : ''} ${isSavedNews ? 'navbar__menu--active' : ''}`}>
       <button
         type="button"
         className="navbar__toggle"
