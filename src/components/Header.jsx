@@ -58,6 +58,18 @@ export default function Header() {
     setIsSuccessOpen(false)
   }
 
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        if (isModalOpen) closeSignin()
+        if (isSignupOpen) closeSignup()
+        if (isSuccessOpen) closeSuccess()
+      }
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => window.removeEventListener('keydown', handleEsc)
+  }, [isModalOpen, isSignupOpen, isSuccessOpen])
+
   return (
     <header className={`navbar ${isSavedNews ? 'navbar--saved' : ''}`}>
       <div className={`navbar__inner ${isSavedNews ? 'navbar__inner--active' : ''}`}>

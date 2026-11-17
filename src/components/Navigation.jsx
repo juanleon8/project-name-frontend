@@ -1,33 +1,43 @@
+import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import unionIcon from '../images/icon/Union1.svg'
 import unionActiveIcon from '../images/icon/Union.svg'
+import menuIcon from '../images/icon/menu.svg'
 
 export default function Navigation({ onSigninClick }) {
-  const { isAuthenticated, user, setUser } = useAppContext()
+  const { isAuthenticated, setUser } = useAppContext()
   const location = useLocation()
   const isSavedNews = location.pathname === '/saved-news'
-  const displayName = user?.name || (user?.email ? user.email.split('@')[0] : 'Elise')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleLogout = () => {
     setUser(null)
+    setMenuOpen(false)
   }
 
   return (
-    <div className={`navbar__menu ${isSavedNews ? 'navbar__menu--active' : ''}`}>
+    <div className={`navbar__menu ${menuOpen ? 'navbar__menu--open' : ''}`}>
+      <button
+        type="button"
+        className="navbar__toggle"
+        onClick={() => setMenuOpen((v) => !v)}
+        aria-label="Menú"
+      >
+        <img src={menuIcon} alt="Menú" />
+      </button>
       <ul className="navbar__links">
         <li>
-          <NavLink to="/" end className="navbar__inicio">
+          <NavLink to="/" end className="navbar__inicio" onClick={() => setMenuOpen(false)}>
             Inicio
-            {!isSavedNews && <span className="navbar__inicio-bar" />}
+            <span className="navbar__inicio-bar" />
           </NavLink>
         </li>
         {isAuthenticated && (
           <>
             <li>
-              <NavLink to="/saved-news" className="navbar__saved-news">
+              <NavLink to="/saved-news" className="navbar__saved-news" onClick={() => setMenuOpen(false)}>
                 Artículos guardados
-                {isSavedNews && <span className="navbar__saved-bar" />}
               </NavLink>
             </li>
             <li>
@@ -36,7 +46,7 @@ export default function Navigation({ onSigninClick }) {
                 className="navbar__user"
                 onClick={handleLogout}
               >
-                <span className="navbar__signin-text">{displayName}</span>
+                <span className="navbar__signin-text">Elise</span>
                 <div className="navbar__user-icon">
                   <img
                     src={isSavedNews ? unionActiveIcon : unionIcon}
@@ -52,7 +62,10 @@ export default function Navigation({ onSigninClick }) {
             <button
               type="button"
               className="navbar__signin"
-              onClick={onSigninClick}
+              onClick={() => {
+                setMenuOpen(false)
+                onSigninClick()
+              }}
             >
               <span className="navbar__signin-text">Iniciar sesión</span>
             </button>
