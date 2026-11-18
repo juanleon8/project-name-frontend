@@ -807,36 +807,32 @@ button {
 
 .hero__saved-subtitle {
   font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+  font-size: var(--fs-md);
   color: var(--color-text-muted);
-  margin: 8px 0 0 16px;
-  width: 288px;
-  height: 24px;
-  text-align: left;
+  margin: 40px 624px var(--sp-2) 104px;
+  width: 712px;
 }
 
 .hero__saved-title {
   font-family: 'Roboto Slab', serif;
   font-weight: 900;
-  font-size: 30px;
+  font-size: 40px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #1A1B22;
   text-align: left;
-  margin: 16px 0 0 16px;
-  width: 288px;
-  height: 68px;
+  margin: 92px 802px 0 104px;
+  width: 530px;
+  height: 92px;
 }
 
 .hero__saved-keywords {
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: var(--fs-md);
   font-weight: 400;
   color: #000000;
-  margin: 50px auto 0 auto;
-  width: 288px;
-  height: 48px;
-  text-align: center;
+  margin: 30px 624px 56px 104px;
+  width: 712px;
 }
 
 .hero__saved-keywords strong {
