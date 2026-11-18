@@ -271,7 +271,6 @@ button {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border: none;
-  height: 246px !important;
 }
 
 .navbar__brand {
@@ -291,14 +290,6 @@ button {
 
 .navbar__brand--active .navbar__brand-link {
   color: #1A1B22;
-}
-
-.navbar__brand--menu-open {
-  background: #1A1B22;
-}
-
-.navbar__brand--menu-open .navbar__brand-link {
-  color: #ffffff;
 }
 
 .navbar__brand-link {
@@ -401,7 +392,7 @@ button {
   border: 1px solid #ffffff;
   border-radius: 150px;
   background: transparent;
-  color: #ffffff;
+  color: var(--color-text-strong);
   font-size: 18px;
   transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
@@ -418,7 +409,7 @@ button {
   border: 1px solid #ffffff;
   border-radius: 150px;
   background: transparent;
-  color: #ffffff !important;
+  color: var(--color-text-strong);
   font-size: 18px;
   transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
@@ -821,7 +812,7 @@ button {
   letter-spacing: 0%;
   color: #1A1B22;
   text-align: left;
-  margin: 92px 802px 0 104px;
+  margin: 28px 802px 0 104px;
   width: 530px;
   height: 92px;
 }
@@ -1038,13 +1029,13 @@ button {
 
 .navbar__menu--active .navbar__inicio,
 .navbar__menu--active .navbar__saved-news {
-  color: #ffffff !important;
+  color: #1A1B22 !important;
 }
 
 .navbar__menu--active .navbar__signin,
 .navbar__menu--active .navbar__user {
-  color: #ffffff !important;
-  border-color: #ffffff !important;
+  color: #1A1B22 !important;
+  border-color: #1A1B22 !important;
   background: transparent;
 }
 
@@ -1156,15 +1147,6 @@ button {
     margin: 132px 0 22px 0;
     flex-shrink: 0;
     text-align: center;
-  }
-
-  .app-footer__menu {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 200px;
-    height: 74px;
-    right: 104px;
-    left: auto;
   }
 
   .app-footer__icons {

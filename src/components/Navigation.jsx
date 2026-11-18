@@ -3,7 +3,6 @@ import { useAppContext } from '../context/AppContext'
 import unionIcon from '../images/icon/Union1.svg'
 import unionActiveIcon from '../images/icon/Union.svg'
 import menuIcon from '../images/icon/menu.svg'
-import menuActiveIcon from '../images/icon/menu2.svg'
 
 export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
   const { isAuthenticated, user, setUser } = useAppContext()
@@ -24,7 +23,7 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
         onClick={() => setMenuOpen((v) => !v)}
         aria-label="Menú"
       >
-        <img src={isSavedNews ? menuActiveIcon : menuIcon} alt="Menú" />
+        <img src={menuIcon} alt="Menú" />
       </button>
       <ul className="navbar__links">
         <li>
@@ -49,7 +48,7 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
                 <span className="navbar__signin-text">{displayName}</span>
                 <div className="navbar__user-icon">
                   <img
-                    src={unionIcon}
+                    src={isSavedNews ? unionActiveIcon : unionIcon}
                     alt="Elise"
                   />
                 </div>
