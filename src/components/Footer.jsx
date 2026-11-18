@@ -7,19 +7,17 @@ export default function Footer() {
       <p className="app-footer__copyright">
         © 2021 Supersite, Powered by News API
       </p>
-      <div className="app-footer__right">
-        <nav className="app-footer__menu">
-          <a href="/">Inicio</a>
-          <a href="/practicum">Practicum</a>
-        </nav>
-        <div className="app-footer__icons">
-          <a href="https://github.com" target="_blank" rel="noreferrer">
-            <img src={githubIcon} alt="GitHub" />
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer">
-            <img src={facebookIcon} alt="Facebook" />
-          </a>
-        </div>
+      <nav className="app-footer__menu">
+        <a href="/">Inicio</a>
+        <a href="/practicum">Practicum</a>
+      </nav>
+      <div className="app-footer__icons">
+        <a href="https://github.com" target="_blank" rel="noreferrer">
+          <img src={githubIcon} alt="GitHub" />
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noreferrer">
+          <img src={facebookIcon} alt="Facebook" />
+        </a>
       </div>
     </footer>
   )
