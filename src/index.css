@@ -1149,6 +1149,15 @@ button {
     text-align: center;
   }
 
+  .app-footer__menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    height: 74px;
+    right: 104px;
+    left: auto;
+  }
+
   .app-footer__icons {
     right: 16px;
   }
