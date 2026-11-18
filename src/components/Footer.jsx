@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="app-footer">
       <p className="app-footer__copyright">
-        © 2021 Supersite, Powered by News API
+        © {new Date().getFullYear()} Proyecto 20 — Desarrollo Web (TripleTen)
       </p>
       <div className="app-footer__right">
         <nav className="app-footer__menu">
