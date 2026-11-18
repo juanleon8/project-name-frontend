@@ -74,7 +74,7 @@ export default function Header() {
   return (
     <header className={`navbar ${isSavedNews ? 'navbar--saved' : ''}`}>
       <div className={`navbar__inner ${isSavedNews ? 'navbar__inner--active' : ''} ${menuOpen ? 'navbar__inner--menu-open' : ''}`}>
-        <div className={`navbar__brand ${isSavedNews ? 'navbar__brand--active' : ''}`}>
+        <div className={`navbar__brand ${isSavedNews ? 'navbar__brand--active' : ''} ${menuOpen ? 'navbar__brand--menu-open' : ''}`}>
           <NavLink to="/" className="navbar__brand-link">
             NewsExplorer
           </NavLink>
@@ -106,7 +106,7 @@ export default function Header() {
                         .join(', ')}
                 </strong>
               ) : (
-                'sin palabras clave'
+                <strong>sin palabras clave</strong>
               )}
             </p>
           </>
