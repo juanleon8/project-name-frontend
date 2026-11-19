@@ -433,6 +433,23 @@ button {
   height: 24px;
 }
 
+.icon-desktop {
+  display: block;
+}
+
+.icon-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .icon-desktop {
+    display: none;
+  }
+  .icon-mobile {
+    display: block;
+  }
+}
+
 .navbar__signin-text {
   display: flex;
   align-items: center;
@@ -1723,6 +1740,16 @@ button {
   width: 288px;
   height: 68px;
   font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .search-results__title {
+    width: 288px;
+  }
+
+  .home__empty {
+    width: 288px;
+  }
 }
 
 /* ===== Saved news ===== */

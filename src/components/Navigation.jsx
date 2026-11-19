@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
-import unionIcon from '../images/icon/Union1.svg'
+import unionIcon from '../images/icon/Union.svg'
+import unionIconMobile from '../images/icon/Union1.svg'
 import menuIcon from '../images/icon/menu.svg'
 import menuIconSaved from '../images/icon/menu2.svg'
 import closeIcon from '../images/icon/close.svg'
@@ -48,10 +49,8 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
               >
                 <span className="navbar__signin-text">{displayName}</span>
                 <div className="navbar__user-icon">
-                  <img
-                    src={unionIcon}
-                    alt="Elise"
-                  />
+                  <img className="icon-desktop" src={unionIcon} alt="Elise" />
+                  <img className="icon-mobile" src={unionIconMobile} alt="Elise" />
                 </div>
               </button>
             </li>
