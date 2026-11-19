@@ -75,7 +75,10 @@ export default function Header() {
     <header className={`navbar ${isSavedNews ? 'navbar--saved' : ''}`}>
       <div className={`navbar__inner ${isSavedNews ? 'navbar__inner--active' : ''} ${menuOpen ? 'navbar__inner--menu-open' : ''}`}>
         <div className={`navbar__brand ${isSavedNews ? 'navbar__brand--active' : ''}`}>
-          <NavLink to="/" className="navbar__brand-link">
+          <NavLink
+            to="/"
+            className={`navbar__brand-link ${menuOpen ? 'navbar__brand-link--menu-open' : ''}`}
+          >
             NewsExplorer
           </NavLink>
         </div>

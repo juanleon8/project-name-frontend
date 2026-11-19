@@ -297,6 +297,11 @@ button {
   text-decoration: none;
 }
 
+.navbar__brand-link--menu-open {
+  background: #1A1B22;
+  color: #ffffff !important;
+}
+
 .navbar__brand-link:hover {
   color: #ffffff;
 }
@@ -493,6 +498,13 @@ button {
     padding: var(--sp-4);
     border-bottom: 1px solid var(--color-border);
     z-index: 9999;
+    color: #ffffff !important;
+  }
+
+  .navbar__menu--open .navbar__links a,
+  .navbar__menu--open .navbar__links button {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
   }
 
   .modal--signin {
@@ -1027,6 +1039,10 @@ button {
   color: #1A1B22;
 }
 
+.navbar__menu--open {
+  background: #1A1B22;
+}
+
 .navbar__menu--active .navbar__inicio,
 .navbar__menu--active .navbar__saved-news {
   color: #1A1B22 !important;
@@ -1106,6 +1122,26 @@ button {
     margin-left: 0;
     margin-right: auto;
     text-align: left;
+  }
+
+  .hero__saved-keywords {
+    width: 288px;
+    height: 48px;
+    margin: 50px auto 0 auto;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .header__hero--saved {
+    height: 246px;
+  }
+
+  .hero__saved-title {
+    width: 288px;
+    height: 68px;
+    margin: 16px auto 0 auto;
+    text-align: left;
+    font-size: 30px;
   }
   .hero__subtitle {
     width: 288px;
