@@ -1228,6 +1228,7 @@ button {
     width: 288px !important;
     height: 440px !important;
     flex-shrink: 0 !important;
+    margin-top: 24px;
   }
 
   .news-card__date {
