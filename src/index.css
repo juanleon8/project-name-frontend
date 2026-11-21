@@ -184,8 +184,8 @@ button {
 
 .app-main {
   flex: 1;
-  width: 1440px;
-  max-width: none;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0;
   background: #F5F6F7;
@@ -200,8 +200,8 @@ button {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  width: 1440px;
-  max-width: none;
+  width: 100%;
+  max-width: 1440px;
   height: 576px;
   padding: 0 var(--sp-6) 0 0;
   margin: 0 auto;
@@ -222,7 +222,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 80px;
   border: none;
   border-bottom: 1px solid #D1D2D6;
@@ -262,7 +263,8 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 0;
   margin: 0 auto;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 100%;
 }
 
@@ -961,8 +963,8 @@ button {
   padding: var(--sp-6) var(--sp-4);
   color: var(--color-text-muted);
   font-size: var(--fs-sm);
-  width: 1440px;
-  max-width: none;
+  width: 100%;
+  max-width: 1440px;
   height: 80px;
   margin: 0 auto;
   display: flex;
@@ -1784,7 +1786,9 @@ button {
   gap: var(--sp-8);
   padding: var(--sp-8) var(--sp-6);
   background: #ffffff;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .section-about__img {

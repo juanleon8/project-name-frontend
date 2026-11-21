@@ -1,6 +1,6 @@
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 const NEWS_API_KEY = import.meta.env.VITE_NEWS_API_KEY || '259c8c3a82824d22a6c7e143daf4796e'
-const NEWS_API = 'https://newsapi.org/v2'
+const NEWS_API = 'https://nomoreparties.co/news/v2'
 
 class ThirdPartyApi {
   static async getNews(query) {
