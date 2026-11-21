@@ -4,6 +4,7 @@ Aplicación web desarrollada con **React + Vite** que permite buscar noticias po
 
 ## 🚀 Demo
 
+- **URL de producción (GitHub Pages):** https://juanleon8.github.io/project-name-frontend/
 - **URL local:** http://localhost:5173
 - **Repositorio:** https://github.com/juanleon8/project-name-frontend
 
@@ -62,6 +63,19 @@ src/
    npm run build
    npm run preview
    ```
+
+## 🌐 Despliegue
+
+La aplicación está publicada con **GitHub Pages** en:
+https://juanleon8.github.io/project-name-frontend/
+
+El despliegue es automático: el workflow `.github/workflows/deploy.yml` compila el proyecto con `npm run build` y publica la carpeta `dist` en cada `push` a `main`. Para configurarlo desde cero:
+
+1. En el repositorio, entra en **Settings → Pages → Build and deployment**.
+2. En **Source**, selecciona **GitHub Actions**.
+3. (Opcional) Agrega en **Settings → Secrets and variables → Actions** las variables `VITE_API_URL` y `VITE_NEWS_API_KEY` si quieres usar un backend propio. Sin ellas, la app usa los valores por defecto.
+
+> La navegación usa `HashRouter` para que las rutas (`/saved-news`, `/search`) funcionen correctamente en GitHub Pages.
 
 ## ✨ Funcionalidades
 

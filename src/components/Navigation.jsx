@@ -61,12 +61,13 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
             <button
               type="button"
               className="navbar__signin"
+              aria-label="Iniciar sesión"
               onClick={() => {
                 setMenuOpen(false)
                 onSigninClick()
               }}
             >
-              <span className="navbar__signin-text">Iniciar sesión</span>
+              <span className="navbar__signin-text"></span>
             </button>
           </li>
         )}

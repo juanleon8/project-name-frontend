@@ -116,7 +116,6 @@ export default function Header() {
         ) : (
           <>
         <h1 className="hero__title">
-          ¿Qué está pasando en el mundo?
         </h1>
         <p className="hero__subtitle">
           Encuentra las últimas noticias sobre cualquier tema y guárdalas en tu
