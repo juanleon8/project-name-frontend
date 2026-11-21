@@ -49,8 +49,8 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
               >
                 <span className="navbar__signin-text">{displayName}</span>
                 <div className="navbar__user-icon">
-                  <img className="icon-desktop" src={unionIcon} alt="Elise" />
-                  <img className="icon-mobile" src={unionIconMobile} alt="Elise" />
+                  <img className="icon-desktop" src={isSavedNews ? unionIcon : unionIconMobile} alt="Elise" />
+                  <img className="icon-mobile" src={isSavedNews ? unionIcon : unionIconMobile} alt="Elise" />
                 </div>
               </button>
             </li>
@@ -67,7 +67,7 @@ export default function Navigation({ onSigninClick, menuOpen, setMenuOpen }) {
                 onSigninClick()
               }}
             >
-              <span className="navbar__signin-text"></span>
+              <span className="navbar__signin-text">Iniciar sesión</span>
             </button>
           </li>
         )}
